@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
     
   namespace :api, path: '/', constraints: { subdomain: 'api'} do
-    resources :lines
+
+    resources :lines do
+
+      resources :tasks
+      
+    end
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

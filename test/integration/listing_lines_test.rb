@@ -9,9 +9,20 @@ class ListingLinesTest < ActionDispatch::IntegrationTest
 
 		get '/lines'
 		assert_equal 200, response.status
-		json = JSON.parse(response.body, symbolize_names: true)
+		json = json(response.body)
 
 		assert_equal "First line", json[:lines][0][:name]
+	end
+
+	test 'returns associated tasks ids for all lines' do
+		line = Line.create!(name: "First line")
+		task = Task.create!(title: "Task one", description: "Description of task one", line_id: 1)
+
+		get '/lines'
+		assert_equal 200, response.status
+		json = json(response.body)
+
+		assert_includes json[:lines][0][:tasks], 1
 	end
 
 end
