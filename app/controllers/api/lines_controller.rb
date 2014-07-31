@@ -11,6 +11,8 @@ module Api
 			line = Line.new(line_params)
 			if line.save
 				render json: line, status: 201, location: api_line_url(line)
+			else
+				render json: line.errors, status: 422
 			end
 		end
 
@@ -18,6 +20,8 @@ module Api
 			line = Line.find(params[:id])
 			if line.update(line_params)
 				render json: line, status: 200
+			else
+				render json: line.errors, status: 422
 			end
 		end
 
