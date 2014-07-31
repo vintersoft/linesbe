@@ -1,5 +1,8 @@
 class LineSerializer < ActiveModel::Serializer
-	attributes :id, :name
+	attributes :id, :name, :links
 
-	has_many :tasks, embed: :ids
+	def links
+		{ tasks: "/lines/#{ object.id }/tasks" }
+	end
+
 end

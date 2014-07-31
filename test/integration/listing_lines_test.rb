@@ -9,8 +9,8 @@ class ListingLinesTest < ActionDispatch::IntegrationTest
 
 		get '/lines'
 		assert_equal 200, response.status
-		json = json(response.body)
 
+		json = json(response.body)
 		assert_equal "First line", json[:lines][0][:name]
 	end
 
@@ -20,9 +20,9 @@ class ListingLinesTest < ActionDispatch::IntegrationTest
 
 		get '/lines'
 		assert_equal 200, response.status
-		json = json(response.body)
 
-		assert_includes json[:lines][0][:tasks], 1
+		json = json(response.body)
+		assert_equal json[:lines][0][:links][:tasks], api_line_tasks_path(line.id)
 	end
 
 end
