@@ -5,8 +5,7 @@ class CreatingLinesTest < ActionDispatch::IntegrationTest
 	setup { host! 'api.lines.com' }
 
 	test 'creates line' do
-		line = Line.create!(name: "First line")
-
+		
 		post '/lines', 
 			{ name: "new line" }.to_json,
 			{ 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
@@ -15,6 +14,8 @@ class CreatingLinesTest < ActionDispatch::IntegrationTest
 		
 		json = json(response.body)
 		assert_equal api_line_url(json[:line][:id]), response.location
+
+		assert_equal "new line", Line.find(json[:line][:id]).name
 	end
 
 end
