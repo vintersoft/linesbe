@@ -1,5 +1,5 @@
 class LineSerializer < ActiveModel::Serializer
-	attributes :name
+	attributes :id, :name
 
 	has_many :tasks, embed: :ids, key: "tasks"
 end
