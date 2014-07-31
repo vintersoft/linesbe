@@ -14,6 +14,13 @@ module Api
 			end
 		end
 
+		def update
+			line = Line.find(params[:id])
+			if line.update(line_params)
+				render json: line, status: 200
+			end
+		end
+
 		private
 
 			def line_params
