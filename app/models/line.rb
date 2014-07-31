@@ -1,5 +1,7 @@
 class Line < ActiveRecord::Base
-	has_many :tasks
-
+	
 	validates :name, presence: true
+	
+	has_many :tasks, :dependent => :delete_all
+	
 end

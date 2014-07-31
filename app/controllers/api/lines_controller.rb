@@ -25,6 +25,16 @@ module Api
 			end
 		end
 
+		def destroy
+			#puts "before...."
+			#puts Line.all.to_a
+			#Line.destroy(params[:id])
+			Line.find(params[:id]).destroy
+			#puts "after...."
+			#puts Line.all.to_a
+			head 204
+		end
+
 		private
 
 			def line_params
