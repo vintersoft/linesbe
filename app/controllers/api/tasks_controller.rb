@@ -27,6 +27,11 @@ module Api
 			end
 		end
 
+		def destroy
+			Task.destroy(params[:id])
+			head 204
+		end
+
 		private
 
 			def task_params
