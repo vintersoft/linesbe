@@ -15,7 +15,7 @@ class CreatingTasksTest < ActionDispatch::IntegrationTest
 		assert_equal 201, response.status
 		
 		json = json(response.body)
-		assert_equal api_line_task_url(@line.id, json[:task][:id]), response.location
+		assert_equal api_task_url(json[:task][:id]), response.location
 		assert_equal "new task", Task.find(json[:task][:id]).title
 	end
 

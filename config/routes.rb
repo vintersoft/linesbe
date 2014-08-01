@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   namespace :api, path: '/', constraints: { subdomain: 'api'} do
 
     resources :lines do
-
-      resources :tasks
-      
+      resources :tasks, shallow: true # only: [:index, :new, :create] nested and the rest on root
     end
-
+    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
