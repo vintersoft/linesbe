@@ -1,3 +1,6 @@
+{<img src="https://codeclimate.com/github/vintersoft/linesbe/badges/gpa.svg" />}[https://codeclimate.com/github/vintersoft/linesbe]
+{<img src="https://travis-ci.org/vintersoft/linesbe.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/vintersoft/linesbe]
+
 == README
 
 This README would normally document whatever steps are necessary to get the
