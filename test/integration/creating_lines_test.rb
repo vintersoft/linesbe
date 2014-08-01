@@ -1,14 +1,14 @@
-require 'test_helper'
+require "test_helper"
 
 class CreatingLinesTest < ActionDispatch::IntegrationTest
 
-	setup { host! 'api.lines.com' }
+	setup { host! "api.lines.com" }
 
-	test 'creates line' do
+	test "creates line" do
 		
-		post '/lines', 
+		post "/lines",
 			{ name: "new line" }.to_json,
-			{ 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+			{ "Accept" => Mime::JSON, "Content-Type" => Mime::JSON.to_s }
 
 		assert_equal 201, response.status
 		
@@ -19,9 +19,9 @@ class CreatingLinesTest < ActionDispatch::IntegrationTest
 	end
 
 	test "doesnt allow empty name" do
-		post '/lines', 
+		post "/lines",
 			{ name: "" }.to_json,
-			{ 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+			{ "Accept" => Mime::JSON, "Content-Type" => Mime::JSON.to_s }
 
 		assert_equal 422, response.status
 	end

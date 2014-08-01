@@ -43,4 +43,3 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
