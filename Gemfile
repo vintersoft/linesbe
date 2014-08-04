@@ -43,3 +43,6 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# code coverage for codeclimate
+gem "codeclimate-test-reporter", group: :test, require: nil
