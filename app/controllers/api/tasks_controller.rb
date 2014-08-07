@@ -18,6 +18,11 @@ module Api
 			end
 		end
 
+		def show
+			task = Task.find(params[:id])
+			render json: task, status: 200
+		end
+
 		def update
 			task = Task.find(params[:id])
 			if task.update(task_params)
