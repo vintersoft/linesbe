@@ -8,7 +8,7 @@ module Api
 		end
 
 		def create
-			line = Line.find_by(params[:line_id])
+			line = Line.find(params[:line_id])
 			task = line.tasks.build(task_params)
 
 			if task.save
@@ -35,7 +35,7 @@ module Api
 		private
 
 			def task_params
-				params.require(:task).permit(:title, :desc)
+				params.require(:task).permit(:title, :description)
 			end
 	
 	end

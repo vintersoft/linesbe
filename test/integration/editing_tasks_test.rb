@@ -17,7 +17,7 @@ class EditingTasksTest < ActionDispatch::IntegrationTest
 
 		@task.reload
 		assert_equal "new title", @task.title
-		assert_equal "task desc", @task.description
+		assert_equal "new description", @task.description
 	end
 
 	test "doesnt allow empty title" do

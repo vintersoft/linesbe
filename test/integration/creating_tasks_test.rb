@@ -16,7 +16,10 @@ class CreatingTasksTest < ActionDispatch::IntegrationTest
 		
 		json = json(response.body)
 		assert_equal api_task_url(json[:task][:id]), response.location
-		assert_equal "new task", Task.find(json[:task][:id]).title
+		createdTask = Task.find(json[:task][:id])
+		assert_equal "new task", createdTask.title
+		assert_equal "new desc", createdTask.description
+		assert_equal @line.id, createdTask.line_id
 	end
 
 	test "doesnt allow empty title" do
