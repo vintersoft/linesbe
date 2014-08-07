@@ -4,6 +4,7 @@ class CreatingTasksTest < ActionDispatch::IntegrationTest
 
 	setup do
 		host! 'api.lines.com'
+		@linex = Line.create!(id: 22, name: "linea cero")
 		@line = Line.create!(id: 24, name: "linea uno")
 	end
 
