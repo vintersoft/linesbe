@@ -33,8 +33,12 @@ module Api
 		end
 
 		def destroy
-			Task.destroy(params[:id])
-			head 204
+			begin
+				Task.destroy(params[:id])
+				head 204
+			rescue ActiveRecord::RecordNotFound
+				head 404
+			end
 		end
 
 		private
