@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test "newly created task is not DONE" do
+  	task = Task.create!(title: "Title")
+    assert task[:done] == false
+  end
+
 end

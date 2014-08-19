@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730225425) do
+ActiveRecord::Schema.define(version: 20140819160611) do
 
   create_table "lines", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140730225425) do
     t.integer  "line_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "done",        default: false
   end
 
 end
