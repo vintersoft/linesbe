@@ -41,6 +41,16 @@ module Api
 			end
 		end
 
+		def mark_as_done
+			task = Task.find(params[:id])
+			task.done = true
+			if task.save
+				render json: task, status: 200
+			else
+				render json: task.errors, status: 422
+			end
+		end
+
 		private
 
 			def task_params

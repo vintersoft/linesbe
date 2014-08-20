@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :lines do
       resources :tasks, shallow: true # only: [:index, :new, :create] nested and the rest on root
     end
+
+    patch 'tasks/:id/done' => 'tasks#mark_as_done'
     
   end
 
